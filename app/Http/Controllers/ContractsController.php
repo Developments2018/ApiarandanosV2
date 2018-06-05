@@ -126,19 +126,10 @@ class ContractsController extends Controller
         $healths = Health::orderBy('alergia')->get();
         $saluds = Salud::orderBy('nombre_salud')->get();
         $workers = Worker::orderBy('rut')->get();
-        return view('admin.contracts.create')->with(compact('afps','civils','contract_types','healths','saluds','workers'));
+        $contracts= Contract::find($id);
+        return view('admin.contracts.edit')->with(compact('contracts','afps','civils','contract_types','healths','saluds','workers'));
     }
-   
-    public function view($id)
-    {
-        $positions = Position::orderBy('cargo')->get();
-        $genders = Gender::orderBy('genero')->get();
-        $nationalities = Nationality::orderBy('nacionalidad')->get();
-        $states = State::orderBy('estado')->get();
-        $locations = Location::orderBy('localidad')->get();
-        $worker = Worker::find($id);
-        return view('admin.workers.view')->with(compact('worker','positions','genders','nationalities','states','locations'));
-    }
+  
    
 
 
@@ -146,43 +137,43 @@ class ContractsController extends Controller
     {
           //validar contrato
         $messages = [
-            'rut.unique' => 'Este rut ya se encuentra registrado',
-            'rut.required' => 'El rut es requerido',
-            'civil.required' => 'Campo estado civil es requerido',
-            'afp.required' => 'Campo Afp es requerido',
-            'salud.required' => 'Campo Salud es requerido',
-            'alergia.required' => 'Campo Alergia es requerido',
-            'contracttype.required' => 'Campo Tipo de contrato es requerido',
+
+            'worker_id.required' => 'El rut es requerido',
+            'civil_id.required' => 'Campo estado civil es requerido',
+            'afp_id.required' => 'Campo Afp es requerido',
+            'salud_id.required' => 'Campo Salud es requerido',
+            'alergico.required' => 'Campo Alergia es requerido',
+            'contract_type_id.required' => 'Campo Tipo de contrato es requerido',
             'tercera.required' => 'Campo Tercera edad es requerido',
             'sueldo.required' => 'Campo Sueldo solo numeros',
         ];      
         $rules = [
-            'rut' => 'required|unique:workers',
-            'civil' => 'required',
-            'afp' => 'required',
-            'salud' => 'required',
-            'alergia' => 'required',
-            'contracttype' => 'required',
+    
+            'civil_id' => 'required',
+            'afp_id' => 'required',
+            'salud_id' => 'required',
+            'alergico' => 'required',
+            'contract_type_id' => 'required',
             'tercera' => 'required',
             'sueldo' => 'numeric',
         ];
         $this->validate($request, $rules,$messages);
 
         //registrar nuevo cotrato en la bd
-        $contract =  Contract::find($id);
-        $contract->worker_id = $request->input('rutc');
-        $contract->fechacontratoi = $request->input('fechacontratoi');
-        $contract->fechacontratot = $request->input('fechacontratot');
-        $contract->correo = $request->input('correo');
-        $contract->civil_id= $request->input('civil');
-        $contract->afp_id = $request->input('afp');
-        $contract->salud_id = $request->input('salud');
-        $contract->alergico = $request->input('alergia');
-        $contract->contract_type_id = $request->input('contracttype');
-        $contract->sueldo = $request->input('sueldo');
-        $contract->terceraedad = $request->input('tercera');
-        $contract->cronica = $request->input('cronica');
-        $contract->save();
+        $contracts = Contract::find($id);
+        $contracts->worker_id = $request->input('worker_id');
+        $contracts->fechacontratoi = $request->input('fechacontratoi');
+        $contracts->fechacontratot = $request->input('fechacontratot');
+        $contracts->correo = $request->input('correo');
+        $contracts->civil_id= $request->input('civil_id');
+        $contracts->afp_id = $request->input('afp_id');
+        $contracts->salud_id = $request->input('salud_id');
+        $contracts->alergico = $request->input('alergico');
+        $contracts->contract_type_id = $request->input('contract_type_id');
+        $contracts->sueldo = $request->input('sueldo');
+        $contracts->terceraedad = $request->input('tercera');
+        $contracts->cronica = $request->input('cronica');
+        $contracts->save();
 
         $title = "Contrato editado correctamente!";
         Toastr::success($title);

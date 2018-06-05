@@ -104,8 +104,8 @@
                           </a>
                     
                           <a href="{{ url('/admin/contracts/'.$contract->id.'/edit') }}" class="buttonne-sm" data-toggle="tooltip" title="editar contrato">
-                            <i class="fa fa-pencil"></i>
-                          </a>
+                          <i class="fa fa-pencil"></i>
+                        </a>
                      
                           <form style="display:inline-block;"method="post" action="{{ url('/admin/contracts/'.$contract->id.'/delete') }}">
                           {{ csrf_field() }}

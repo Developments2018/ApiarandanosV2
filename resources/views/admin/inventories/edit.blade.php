@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+@section('content')
 <!--Contenido-->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

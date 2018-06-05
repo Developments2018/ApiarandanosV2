@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+@section('content')
 <!--Contenido-->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -50,24 +51,24 @@
                                 </div>
 
                                 <br>
-                                <form class="form-horizontal" method="post" action="{{ url('/admin/contracts/'.$contract->id.'/edit') }}">
+                                <form class="form-horizontal" method="post" action="{{ url('/admin/contracts/'.$contracts->id.'/edit') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <div class=" col-sm-offset-1 col-sm-5">
-                                            <label for="rut" class="control-label">Rut</label>
+                                            <label for="worker_id" class="control-label">Rut</label>
                                             <div class="input-group">
-                                            <select data-live-search="true" name="rut" id="rut" class="selectpicker" >
+                                            <select data-live-search="true" name="worker_id" id="worker_id" class="selectpicker" >
                                                 <option value="" >Seleccione rut</option>
                                                 @foreach ($workers as $worker)
-                                                <option value="{{ $worker->id }}"@if(old('rut') == $worker->id) {{ 'selected' }} @endif>{{ $worker->rut }}  </option>
-                                                @endforeach
+                            <option value="{{ $worker->id }}" @if($worker->id == old('worker_id', $contracts->worker_id)) selected @endif> {{ $worker->rut }}</option>
+                            @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="fechacontratoi" class="control-label">Inicio contrato</label>
                                             <div class="input-group">
-                                                <input value=" {{ $contract->fechacontratoi }}" type="text" maxlength="12" name="fechacontratoi" id="fechacontratoi" class="select-field" required >
+                                                <input value=" {{ $contracts->fechacontratoi }}" type="text" maxlength="12" name="fechacontratoi" id="fechacontratoi" class="select-field" required >
                                             </div>
                                         </div>
                                     </div>
@@ -75,73 +76,76 @@
                                         <div class=" col-sm-offset-1 col-sm-5">
                                             <label for="fechacontratot" class="control-label">Termino contrato</label>
                                             <div class="input-group">
-                                                <input value=" {{ $contract->fechacontratot }}" type="text" maxlength="12" name="fechacontratot" id="fechacontratot" class="select-field" required>
+                                                <input value=" {{ $contracts->fechacontratot }}" type="text" maxlength="12" name="fechacontratot" id="fechacontratot" class="select-field" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="correo" class="control-label">Correo electronico</label>
                                             <div class="input-group">
-                                                <input   value=" {{ $contract->correo }}" type="email" maxlength="36" name="correo" id="correo" class="select-field" required >
+                                                <input   value=" {{ $contracts->correo }}" type="email" maxlength="36" name="correo" id="correo" class="select-field" required >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class=" col-sm-offset-1 col-sm-5">
-                                            <label for="civil" class="control-label">Estado civil</label>
+                                            <label for="civil_id" class="control-label">Estado civil</label>
                                             <div class="input-group">
-                                                <select data-live-search="true" name="civil" id="civil" class="select-field">
+                                                <select data-live-search="true" name="civil_id" id="civil_id" class="select-field">
                                                 <option value="">Seleccione estado civil</option>
-                                                @foreach($civils as $civil)
-                                                    <option value="{{ $civil->id }}" @if(old('civil') == $civil->id) {{ 'selected' }} @endif>{{ $civil->estado_civil }}  </option>
-                                                @endforeach
+                                                @foreach ($civils as $civil)
+                            <option value="{{ $civil->id }}" @if($civil->id == old('civil_id', $contracts->civil_id)) selected @endif> {{ $civil->estado_civil }}</option>
+                            @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
-                                            <label for="afp" class="control-label">AFP</label>
+                                            <label for="afp_id" class="control-label">AFP</label>
                                             <div class="input-group">
-                                                <select data-live-search="true" name="afp" id="afp" class="select-field">
+                                                <select data-live-search="true" name="afp_id" id="afp" class="select-field">
                                                 <option value="" >Seleccione AFP</option>
                                                 @foreach ($afps as $afp)
-                                                <option value="{{ $afp->id }}"@if(old('rnombre_afp') == $afp->id) {{ 'selected' }} @endif>{{ $afp->nombre_afp }}  </option>
-                                                @endforeach
+                            <option value="{{ $afp->id }}" @if($afp->id == old('afp_id', $contracts->afp_id)) selected @endif> {{ $afp->nombre_afp }}</option>
+                            @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class=" col-sm-offset-1 col-sm-5">
-                                            <label for="salud" class="control-label">Salud</label>
+                                            <label for="salud_id" class="control-label">Salud</label>
                                             <div class="input-group">
-                                                <select data-live-search="true" name="salud" id="salud" class="select-field">
+                                                <select data-live-search="true" name="salud_id" id="salud" class="select-field">
                                                     <option value="">Seleccione Salud </option>
-                                
                                                     @foreach ($saluds as $salud)
-                                                <option value="{{ $salud->id }}"@if(old('nombre_salud') == $afp->id) {{ 'selected' }} @endif>{{ $salud->nombre_salud }}  </option>
-                                                @endforeach
+                            <option value="{{ $salud->id }}" @if($salud->id == old('salud_id', $contracts->salud_id)) selected @endif> {{ $salud->nombre_salud }}</option>
+                            @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
-                                            <label for="alergia" class="control-label">Alergico</label>
+                                            <label for="alergico" class="control-label">Alergico</label>
                                             <div class="input-group">
-                                                <select data-live-search="true" name="alergia" id="alergia" class="select-field">
-                                                    <option value="">Seleccione alergias </option>
-                                                    <option value="No"@if (old('alergia') == "No") {{ 'selected' }} @endif>No</option>
-                                                    <option value="Si"@if (old('alergia') == "Si") {{ 'selected' }}  @endif>Si</option>
+                                                <select data-live-search="true" name="alergico" id="alergia" class="select-field">
+                                                    @if($contracts->alergico == "No")
+                                                    <option>{{ $contracts->alergico }}</option>
+                                                    <option value="Si">Si</option>
+                                                    @else
+                                                    <option>{{ $contracts->alergico }}</option>
+                                                    <option value="No">No</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class=" col-sm-offset-1 col-sm-5">
-                                            <label for="contracttype" class="control-label">Tipo de contrato</label>
+                                            <label for="contract_type_id" class="control-label">Tipo de contrato</label>
                                             <div class="input-group">
-                                                <select data-live-search="true" name="contracttype" id="contracttype" class="select-field">
+                                                <select data-live-search="true" name="contract_type_id" id="contracttype" class="select-field">
                                                 <option value="">Seleccione contrato</option>
                                 
-                                @foreach ($contract_types as $contract_type)
-                            <option value="{{ $contract_type->id }}"@if(old('nombrecontrato') == $afp->id) {{ 'selected' }} @endif>{{ $contract_type->nombrecontrato }}  </option>
+                                                @foreach ($contract_types as $contract_type)
+                            <option value="{{ $contract_type->id }}" @if($contract_type->id == old('contract_type_id', $contracts->contract_type_id)) selected @endif> {{ $contract_type->nombrecontrato }}</option>
                             @endforeach
                                                 </select>
                                             </div>
@@ -149,7 +153,7 @@
                                         <div class="col-lg-4">
                                             <label for="sueldo" class="control-label">Sueldo bruto</label>
                                             <div class="input-group">
-                                            <input value=" {{ $contract->sueldo }}" type="text" maxlength="10" name="sueldo" id="sueldo" class="select-field" required >
+                                            <input value=" {{ $contracts->sueldo }}" type="text" maxlength="10" name="sueldo" id="sueldo" class="select-field" required >
                                             </div>
                                         </div>
                                     </div>
@@ -158,17 +162,29 @@
                                         <label for="tercera" class="control-label">Tercera edad</label>
                                             <div class="input-group">
                                             <select data-live-search="true" name="tercera" id="tercera" class="select-field">
-                                                    <option value="">Seleccione condicion </option>
-                                                    <option value="No aplica"@if (old('tercera') == "No aplica") {{ 'selected' }} @endif>No aplica</option>
-                                                    <option value="Si, pensionado(a)"@if (old('tercera') == "Si, pensionado(a) y cotiza") {{ 'selected' }} @endif>Si, pensionado(a) y cotiza</option>
-                                                    <option value="Si, pensionado(a)"@if (old('tercera') == "Si, pensionado(a) y no cotiza") {{ 'selected' }} @endif>Si, pensionado(a) y no cotiza</option>
+                                                    @if($contracts->terceraedad == "No aplica")
+                                                    <option>{{ $contracts->terceraedad }}</option>
+                                                    <option value="Si cotiza">Si cotiza</option>
+                                                    <option value="No cotiza">No cotiza</option>
+                                               
+                                                    @elseif($contracts->terceraedad == "Si cotiza")
+                                                    <option>{{ $contracts->terceraedad }}</option>
+                                                    <option value="No cotiza">No cotiza</option>
+                                                    <option value="No aplica">No aplica</option>
+                                         
+                                                    @else($contracts->terceraedad == "No cotiza")
+                                                    <option>{{ $contracts->terceraedad }}</option>
+                                                    <option value="Si cotiza">Si cotiza</option>
+                                                    <option value="No aplica">No aplica</option>
+                                                    @endif
+                                                 
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="cronica" class="control-label">Enfermedad cronica</label>
                                             <div class="input-group">
-                                            <input value=" {{ $contract->cronica }}" type="text" maxlength="35" name="cronica" id="cronica" class="select-field" required>
+                                            <input value=" {{ $contracts->cronica }}" type="text" maxlength="35" name="cronica" id="cronica" class="select-field" required>
                                         </div>
                                     </div> </div>
                                     <div class="form-group">

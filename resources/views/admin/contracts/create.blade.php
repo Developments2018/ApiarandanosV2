@@ -103,7 +103,7 @@
                                                 <select data-live-search="true" name="afp" id="afp" class="select-field">
                                                 <option value="" >Seleccione AFP</option>
                                                 @foreach ($afps as $afp)
-                                                <option value="{{ $afp->id }}"@if(old('afp_id') == $afp->id) {{ 'selected' }} @endif>{{ $afp->nombre_afp }}  </option>
+                                                <option value="{{ $afp->id }}"@if(old('afp') == $afp->id) {{ 'selected' }} @endif>{{ $afp->nombre_afp }}  </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -117,7 +117,7 @@
                                                     <option value="">Seleccione Salud </option>
                                 
                                                     @foreach ($saluds as $salud)
-                                                <option value="{{ $salud->id }}"@if(old('salud_id') == $afp->id) {{ 'selected' }} @endif>{{ $salud->nombre_salud }}  </option>
+                                                <option value="{{ $salud->id }}"@if(old('salud') == $salud->id) {{ 'selected' }} @endif>{{ $salud->nombre_salud }}  </option>
                                                 @endforeach
                                                 </select>
                                             </div>
@@ -139,9 +139,8 @@
                                             <div class="input-group">
                                                 <select data-live-search="true" name="contracttype" id="contracttype" class="select-field">
                                                 <option value="">Seleccione contrato</option>
-                                
                                 @foreach ($contract_types as $contract_type)
-                            <option value="{{ $contract_type->id }}"@if(old('nombrecontrato') == $afp->id) {{ 'selected' }} @endif>{{ $contract_type->nombrecontrato }}  </option>
+                            <option value="{{ $contract_type->id }}"@if(old('contracttype') == $contract_type->id) {{ 'selected' }} @endif>{{ $contract_type->nombrecontrato }}  </option>
                             @endforeach
                                                 </select>
                                             </div>
@@ -160,8 +159,8 @@
                                             <select data-live-search="true" name="tercera" id="tercera" class="select-field">
                                                     <option value="">Seleccione condicion </option>
                                                     <option value="No aplica"@if (old('tercera') == "No aplica") {{ 'selected' }} @endif>No aplica</option>
-                                                    <option value="Si, pensionado(a)"@if (old('tercera') == "Si, pensionado(a) y cotiza") {{ 'selected' }} @endif>Si, pensionado(a) y cotiza</option>
-                                                    <option value="Si, pensionado(a)"@if (old('tercera') == "Si, pensionado(a) y no cotiza") {{ 'selected' }} @endif>Si, pensionado(a) y no cotiza</option>
+                                                    <option value="Si y cotiza"@if (old('tercera') == "Si y cotiza") {{ 'selected' }} @endif>Si y cotiza</option>
+                                                    <option value="Si y no cotiza"@if (old('tercera') == "Si y no cotiza") {{ 'selected' }} @endif>Si y no cotiza</option>
                                             
                                                 </select>
                                             </div>
