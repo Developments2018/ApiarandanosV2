@@ -72,8 +72,8 @@ class ContractsController extends Controller
     {
         //validar contrato
         $messages = [
-            'rutc.unique' => 'Este contrato ya esta creado',
-            'rutc.required' => 'El rut es requerido',
+            'worker_id.unique' => 'Este contrato ya esta creado',
+            'worker_id.required' => 'El rut es requerido',
             'civil.required' => 'Campo estado civil es requerido',
             'afp.required' => 'Campo Afp es requerido',
             'salud.required' => 'Campo Salud es requerido',
@@ -83,7 +83,7 @@ class ContractsController extends Controller
             'sueldo.required' => 'Campo Sueldo solo numeros',
         ];      
         $rules = [
-            'rutc' => 'required|unique:workers',
+            'worker_id' => 'required|unique:contracts',
             'civil' => 'required',
             'afp' => 'required',
             'salud' => 'required',
@@ -97,7 +97,7 @@ class ContractsController extends Controller
         //registrar nuevo contrato en la bd
     
         $contract = new Contract();
-        $contract->worker_id = $request->input('rutc');
+        $contract->worker_id = $request->input('worker_id');
         $contract->fechacontratoi = $request->input('fechacontratoi');
         $contract->fechacontratot = $request->input('fechacontratot');
         $contract->correo = $request->input('correo');

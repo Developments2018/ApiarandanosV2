@@ -54,9 +54,9 @@
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <div class=" col-sm-offset-1 col-sm-5">
-                                            <label for="rutc" class="control-label">Seleccione rut</label>
+                                            <label for="worker_id" class="control-label">Seleccione rut</label>
                                             <div class="input-group">
-                                            <select data-live-search="true" name="rutc" id="rutc" class="selectpicker" >
+                                            <select data-live-search="true" name="worker_id" id="worker_id" class="selectpicker" >
                                                 <option value="" >Seleccione rut</option>
                                                 @foreach ($workers as $worker)
                                                 <option value="{{ $worker->id }}"@if(old('worker_id') == $worker->id) {{ 'selected' }} @endif>{{ $worker->rut }}  </option>
