@@ -121,6 +121,10 @@ document.getElementById('logout-form').submit();">
                 <a href="{{url('/admin/workers')}}">
                   <i class="fa fa-clipboard"></i>Registro de Trabajadores</a>
               </li>
+              <li>
+                <a href="{{url('/admin/contracts')}}">
+                  <i class="fa fa-briefcase"></i>Contratos</a>
+              </li>
             @endcan
             </ul>
           </li>
@@ -315,11 +319,13 @@ document.getElementById('logout-form').submit();">
             $("#sagg").removeClass("hidden");
             $("#reingresoo").removeClass("hidden");
             $("#categoriass").removeClass("hidden");
+
           }
           else{
             $("#sagg").addClass("hidden");
             $("#reingresoo").addClass("hidden");
             $("#categoriass").addClass("hidden");
+
           }
     });
 

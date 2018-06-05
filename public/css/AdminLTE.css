@@ -68,6 +68,22 @@ size:5px;
   outline: none;
   width:90px;
 }
+
+.select-field-fecha{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #C2C2C2;
+  box-shadow: 5px 5px 8px #EBEBEB;
+  -moz-box-shadow: 1px 1px 4px #EBEBEB;
+  -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 3px;
+  padding: 7px;
+  outline: none;
+  width:160px;
+}
 .select-field:focus{
   border: 1px solid #0C0;
 }

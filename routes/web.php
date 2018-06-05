@@ -44,6 +44,15 @@ Route::post('/admin/workers/{id}/edit','WorkersController@update')->middleware('
 Route::get('/search','WorkersController@show')->middleware('permission:workers.show');
     //rutas de trabajadores
 
+    //rutas de contratos
+    Route::get('/admin/contracts', 'ContractsController@index');
+    Route::get('/admin/contracts/create', 'ContractsController@create');
+    Route::post('/admin/contracts','ContractsController@store');
+    Route::get('/admin/contracts/{id}/edit','ContractsController@edit');
+    Route::post('/admin/contracts/{id}/edit','ContractsController@update');
+    Route::post('/admin/contracts/{id}/delete','ContractsController@destroy'); 
+    //rutas de contratos
+
     //rutas Articulos
 Route::get('/admin/inventories', 'ArticlesController@index')->middleware('permission:inventories.index');
 Route::get('/admin/inventories/create','ArticlesController@create')->middleware('permission:inventories.create'); 
