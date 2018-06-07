@@ -72,4 +72,31 @@ $(document).ready(function () {
             $('select[name="articulo"]').empty();
         }
     })
+
+    $('#detail').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget) 
+        var nombre = button.data('nombre') 
+        var apellido = button.data('apellido') 
+        var rut = button.data('rut') 
+        var id = button.data('id') 
+        var nombrecontrato = button.data('nombrecontrato')
+        var finicio = button.data('finicio') 
+        var ftermino = button.data('ftermino')  
+        var afp = button.data('afp') 
+        var salud = button.data('salud') 
+        var salario = button.data('salario') 
+        var modal = $(this)
+  
+        modal.find('.modal-body #nombre').val(nombre);
+        modal.find('.modal-body #apellido').val(apellido);
+        modal.find('.modal-body #rut').val(rut);
+        modal.find('.modal-body #id').val(id);
+        modal.find('.modal-body #nombrecontrato').val(nombrecontrato);
+        modal.find('.modal-body #finicio').val(finicio);
+        modal.find('.modal-body #ftermino').val(ftermino);
+        modal.find('.modal-body #afp').val(afp);
+        modal.find('.modal-body #salario').val(salario);
+        modal.find('.modal-body #salud').val(salud);
+  })
 });

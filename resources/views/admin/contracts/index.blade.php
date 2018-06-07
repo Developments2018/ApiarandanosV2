@@ -99,7 +99,11 @@
                         <td>{{ $contract->sueldo }}</td>
                         <td class="td-actions">
                        
-                          <a  href="" class="buttonnd-sm" title="Detalle del contrato" data-toggle="tooltip">
+                          <a  class="buttonnd-sm" data-nombre="{{$contract->worker_nombre}}" data-apellido="{{$contract->worker_apellidos}}" data-rut="{{$contract->worker_rut}}" 
+                              data-id="{{$contract->id}}" data-finicio="{{$contract->fechacontratoi}}" data-ftermino="{{$contract->fechacontratot}}"
+                              data-nombrecontrato="{{$contract->contract_type_nombrecontrato}}" data-afp="{{$contract->afp_nombre_afp}}"
+                              data-salud="{{ $contract->salud_nombre_salud}}"  data-salario="{{ $contract->sueldo}}"
+                              data-toggle="modal" data-target="#detail">
                             <i class="fa fa-eye"></i>
                           </a>
                     
@@ -130,6 +134,29 @@
 
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+                <!-- Modal -->
+        <div  class="modal fade bs-example-modal-lg" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog  modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Detalle de Contrato</h4>
+              </div>
+              <form>
+                  {{method_field('patch')}}
+                  {{csrf_field()}}
+                <div class="modal-body">
+                  <div class="row">
+                    <input type="hidden" name="id" id="id" value="">
+                @include('admin.contracts.form')
+                </div>
+              </div>
+                <div class="modal-footer">
+                </div>
+              </form>
             </div>
           </div>
         </div>
