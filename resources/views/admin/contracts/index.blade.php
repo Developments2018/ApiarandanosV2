@@ -138,12 +138,20 @@
           </div>
         </div>
                 <!-- Modal -->
-        <div  class="modal fade bs-example-modal-lg" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog  modal-lg" role="document">
-            <div class="modal-content">
+        <div  class="modal fade bs-example-modal-lg " id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div  class="modal-dialog  modal-lg" role="document">
+            <div style="background:#FBFCFC;border: 1px solid #E8D7EA  ;
+    border-radius: 10px;-webkit-box-shadow: 8px 6px 19px 0px rgba(0,0,0,0.62);" class="col-lg-offset-2 col-lg-7">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title text-center" id="myModalLabel">Detalle de Contrato</h4>
+                <div class="row">
+                                    <div class="col-lg-offset-1 col-sm-6">
+                                        <h3 >Detalle del Contrato</h3>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img style="width:37px;heigth:37px;margin-left:-33px;margin-top:7px;position:absolute" src="{{asset('/img/dee.png')}}">
+                                    </div>
+                                </div>
               </div>
               <form>
                   {{method_field('patch')}}
