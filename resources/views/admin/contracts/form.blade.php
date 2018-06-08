@@ -31,11 +31,11 @@
     </div>
     <div class="form-group">
             <div class="col-lg-6">
-                <label for="worker_id" class="control-label">Previsión de Salud</label>
+                <label for="worker_id" class="control-label">AFP</label>
                 <input disabled type="text" class="select-field" name="afp" id="afp">
             </div>
             <div  class="col-lg-6">
-                <label for="fechacontratoi" class="control-label">AFP</label>
+                <label for="fechacontratoi" class="control-label">Previsión de Salud</label>
                 <input  disabled type="text" class="select-field" name="salud" id="salud">
             </div>
     </div>
@@ -49,3 +49,10 @@
                 <input disabled type="text" class="select-field" name="apellido" id="ftermino">
             </div>
     </div>
+    <div class="form-group">
+        <div class="col-lg-6">
+            <label for="worker_id" class="control-label">Cargo</label>
+            <input disabled type="text" class="select-field" name="cargo" id="cargo">
+        </div>
+        
+</div>

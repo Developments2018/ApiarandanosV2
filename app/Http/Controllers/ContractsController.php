@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use RUT;
 use Toastr;
 use Excel;
@@ -20,7 +21,15 @@ class ContractsController extends Controller
 {
     public function index()
     {   
-        $contracts = Contract::paginate(22);
+        $contracts = DB::table('contracts')
+        ->join('contract_types','contracts.contract_type_id','=','contract_types.id')
+        ->join('afps','contracts.afp_id','=','afps.id')
+        ->join('saluds','contracts.salud_id','=','saluds.id')
+        ->join('workers','contracts.worker_id','=','workers.id')
+        ->join('positions','workers.position_id','=','positions.id')
+        ->select('contracts.*','contract_types.*','afps.*','saluds.*','workers.*','positions.*')
+        ->paginate(22);
+        
         return view('admin.contracts.index')->with(compact('contracts'));
     }
 

@@ -86,6 +86,7 @@ $(document).ready(function () {
         var afp = button.data('afp') 
         var salud = button.data('salud') 
         var salario = button.data('salario') 
+        var cargo = button.data('cargo') 
         var modal = $(this)
   
         modal.find('.modal-body #nombre').val(nombre);
@@ -98,5 +99,6 @@ $(document).ready(function () {
         modal.find('.modal-body #afp').val(afp);
         modal.find('.modal-body #salario').val(salario);
         modal.find('.modal-body #salud').val(salud);
+        modal.find('.modal-body #cargo').val(cargo);
   })
 });

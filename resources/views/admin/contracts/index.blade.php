@@ -88,21 +88,21 @@
                       @foreach ($contracts as $contract)
                       <tr>
                       <td class="hidden">{{ $contract->id }}</td>
-                        <td>{{ $contract->worker_rut }}</td>
-                        <td>{{ $contract->worker_nombre }}</td>
-                        <td>{{ $contract->worker_apellidos }}</td>
+                        <td>{{ $contract->rut }}</td>
+                        <td>{{ $contract->nombre }}</td>
+                        <td>{{ $contract->apellidos }}</td>
                         <td>{{ $contract->fechacontratoi }}</td>
                         <td>{{ $contract->fechacontratot }}</td>
-                        <td>{{ $contract->contract_type_nombrecontrato }}</td>
-                        <td>{{ $contract->afp_nombre_afp }}</td>
-                        <td>{{ $contract->salud_nombre_salud }}</td>
+                        <td>{{ $contract->nombrecontrato }}</td>
+                        <td>{{ $contract->nombre_afp }}</td>
+                        <td>{{ $contract->nombre_salud }}</td>
                         <td>{{ $contract->sueldo }}</td>
                         <td class="td-actions">
                        
-                          <a  class="buttonnd-sm" data-nombre="{{$contract->worker_nombre}}" data-apellido="{{$contract->worker_apellidos}}" data-rut="{{$contract->worker_rut}}" 
+                          <a  class="buttonnd-sm" data-nombre="{{$contract->nombre}}" data-apellido="{{$contract->apellidos}}" data-rut="{{$contract->rut}}" 
                               data-id="{{$contract->id}}" data-finicio="{{$contract->fechacontratoi}}" data-ftermino="{{$contract->fechacontratot}}"
-                              data-nombrecontrato="{{$contract->contract_type_nombrecontrato}}" data-afp="{{$contract->afp_nombre_afp}}"
-                              data-salud="{{ $contract->salud_nombre_salud}}"  data-salario="{{ $contract->sueldo}}"
+                              data-nombrecontrato="{{$contract->nombrecontrato}}" data-afp="{{$contract->nombre_afp}}"
+                              data-salud="{{ $contract->nombre_salud}}"  data-salario="{{ $contract->sueldo}}" data-cargo="{{ $contract->cargo}}"
                               data-toggle="modal" data-target="#detail">
                             <i class="fa fa-eye"></i>
                           </a>
