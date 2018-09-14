@@ -33,10 +33,6 @@ background-image: url(img/bg.jpg);
         <div class="col-sm-6 col-md-4 col-md-offset-4">
           
             <div class="account-wall">
-                <img class="profile-img" src="{{asset('img/la.png')}}">
-
-
-
                     
             <form class="form-signin" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
@@ -60,10 +56,10 @@ background-image: url(img/bg.jpg);
         </div>
         <div class="form-check">
     <input type="checkbox" class="form-check-input" name="remember" id="remember">
-    <label class="form-check-label" for="remember">recordarme</label>
+    <label class="form-check-label" for="remember">Recordarme</label>
   </div> <br>
                 <button style="border-radius: 13px;" class="buttonn" type="submit">
-                    Iniciar Sesion </button>
+                    Iniciar Sesión </button>
                 </form>
 
 

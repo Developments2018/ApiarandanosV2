@@ -32,10 +32,8 @@ margin:auto;
     text-align:center;
 }
             </style>
-                    <img src="{{asset('dist/img/la.png')}}"  alt="Responsive image" height="200" width="250">
-
-		                  <h2 class="h">Bienvenido!</h2>
-                          <h2 class="h">Sistema de Gestion Apiarandanos</h2>
+                          <h2 class="h">Bienvenido!</h2>
+                          <h2 class="h">Sistema de Gestion Transportes Muñoz</h2>
                           <br><br><br><br><br>
                               @yield('contenido')
 		                          <!--Fin Contenido-->

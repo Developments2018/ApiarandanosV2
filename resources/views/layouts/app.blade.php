@@ -46,11 +46,11 @@
       <a href="{{ url('/home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">
-          <b>AP</b>
+          <b>TM</b>
         </span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
-          <b>Apiarandanos</b>
+          <b>Transportes Muñoz</b>
         </span>
       </a>
 
@@ -108,6 +108,59 @@ document.getElementById('logout-form').submit();">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
           <li class="header"></li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user"></i>
+              <span>Operaciones</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+            @can('workers.index')
+              <li>
+                <a href="{{url('/admin/work_orders')}}">
+                  <i class="fa fa-clipboard"></i>OT</a>
+              </li>
+              <li>
+                <a href="{{url('/admin/contracts')}}">
+                  <i class="fa fa-briefcase"></i>Orden de Negocio</a>
+              </li>
+            @endcan
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user"></i>
+              <span>Administración</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+            @can('workers.index')
+              <li>
+                <a href="{{url('/admin/work_orders')}}">
+                  <i class="fa fa-clipboard"></i>Clientes</a>
+              </li>
+              <li>
+                <a href="{{url('/admin/contracts')}}">
+                  <i class="fa fa-briefcase"></i>Fleteros</a>
+              </li>
+              <li>
+                <a href="{{url('/admin/contracts')}}">
+                  <i class="fa fa-briefcase"></i>Tipo Vehículo</a>
+              </li>
+              <li>
+                <a href="{{url('/admin/contracts')}}">
+                  <i class="fa fa-briefcase"></i>Modelo Vehículo</a>
+              </li>
+              <li>
+                <a href="{{url('/admin/contracts')}}">
+                  <i class="fa fa-briefcase"></i>Productos</a>
+              </li>
+            @endcan
+            </ul>
+          </li>
+
 
           <li class="treeview">
             <a href="#">
